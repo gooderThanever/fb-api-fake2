@@ -69,19 +69,7 @@ const providers = [
     success: (data: any) => /^\d+$/.test(data.id),
     isEmpty: (data: any) =>
       data.msg === "Nhập sai đường dẫn link url hoặc chọn sai loại.",
-  },
-  {
-    name: "alolike",
-    method: "GET" as const,
-    url: (link: string) =>
-      `https://alolike.vn/api/v1/tools/get-uid?link=${link}`,
-    buildBody: (_: string) => undefined,
-    parseId: (data: any) => data.layid,
-    success: (data: any) =>
-      data.status === "success" && /^\d+$/.test(data.layid),
-    isEmpty: (data: any) =>
-      data.msg === "Nhập sai đường dẫn link url hoặc chọn sai loại.",
-  },
+  }
 ];
 
 export async function POST(req: NextRequest) {
